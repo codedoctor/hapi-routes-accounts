@@ -11,7 +11,14 @@
 
 Provides HAPI based account management endpoints.
 
-post /users/me/accounts --> Creates a new account. This is limited to one per user (the default account)
+## POST /users/me/accounts
+
+Creates a new account. The account is owned by the user who posts this (taken from the id field from the credentials.) The default options limit to one per user, but this can be overridden.
+
+
+
+
+## more later
 get /users/me/accounts/active --> Retrieves the currently active account for the user
 post /users/me/account/active
 get /users/me/accounts
