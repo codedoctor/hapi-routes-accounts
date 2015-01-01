@@ -4,7 +4,7 @@
 [![Dependency Status](https://gemnasium.com/codedoctor/hapi-routes-accounts.svg)](https://gemnasium.com/codedoctor/hapi-routes-accounts)
 [![NPM Downloads](http://img.shields.io/npm/dm/hapi-routes-accounts.svg)](https://www.npmjs.org/package/hapi-routes-accounts)
 [![Issues](http://img.shields.io/github/issues/codedoctor/hapi-routes-accounts.svg)](https://github.com/codedoctor/hapi-routes-accounts/issues)
-[![HAPI 6.0](http://img.shields.io/badge/hapi-6.0-blue.svg)](http://hapijs.com)
+[![HAPI 8.0](http://img.shields.io/badge/hapi-8.0-blue.svg)](http://hapijs.com)
 [![API Documentation](http://img.shields.io/badge/API-Documentation-ff69b4.svg)](http://coffeedoc.info/github/codedoctor/hapi-routes-accounts)
 
 (C) 2014 Martin Wawrusch

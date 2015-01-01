@@ -11,7 +11,7 @@ routesUsersMeAccount = require './routes-users-me-account'
 ###
 Main entry point for the plugin
 
-@param [Plugin] plugin the HAPI plugin
+@param [Server] server the HAPI plugin
 @param [Object] options the plugin options
 @option options [String|Array] defaultFeatures a string or array of strings indicating the default features for each newly created account.
 @option options [Number] maxOwnedAccountsPerUser The maximum number of accounts a user can create (defaults to 1)
@@ -19,7 +19,7 @@ Main entry point for the plugin
 
 Please note that the routesBaseName is only included to make the life easier while doing the config of your HAPI server.
 ###
-module.exports.register = (plugin, options = {}, cb) ->
+module.exports.register = (server, options = {}, cb) ->
 
   defaults =
     defaultFeatures: []
@@ -31,10 +31,10 @@ module.exports.register = (plugin, options = {}, cb) ->
 
   options.defaultFeatures = [options.defaultFeatures] if _.isString options.defaultFeatures
 
-  routesAccount plugin,options
-  routesUsersMeAccount plugin,options
+  routesAccount server,options
+  routesUsersMeAccount server,options
 
-  plugin.expose 'i18n',i18n
+  server.expose 'i18n',i18n
 
   cb()
 
