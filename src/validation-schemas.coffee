@@ -18,4 +18,4 @@ module.exports =
     stripeCustomerId: stripeCustomerId
     defaultCreditCardId: creditCardId
 
-    ).options({allowUnkown: true,stripUnknown:true})
+    ).options({allowUnknown: true,stripUnknown:true})
