@@ -5,8 +5,11 @@
 _ = require 'underscore'
 Hoek = require 'hoek'
 i18n = require './i18n'
-routesAccount = require './routes-account'
-routesUsersMeAccount = require './routes-users-me-account'
+
+routesToExpose = [
+  require './routes-users-me-account-post'
+]
+
 
 ###
 Main entry point for the plugin
@@ -24,6 +27,9 @@ module.exports.register = (server, options = {}, cb) ->
   defaults =
     defaultFeatures: []
     maxOwnedAccountsPerUser: 1
+    routeTagsPublic: ['api','api-public','accounts']
+    routeTagsAdmin: ['api','api-admin','accounts']
+
     #routesBaseName: ''
     #tags: ['setup','private']
     
@@ -31,8 +37,7 @@ module.exports.register = (server, options = {}, cb) ->
 
   options.defaultFeatures = [options.defaultFeatures] if _.isString options.defaultFeatures
 
-  routesAccount server,options
-  routesUsersMeAccount server,options
+  r server,options for r in routesToExpose
 
   server.expose 'i18n',i18n
 

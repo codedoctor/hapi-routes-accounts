@@ -4,8 +4,11 @@ Hoek = require "hoek"
 bson = require 'bson'
 #ObjectID = bson.ObjectID
 async = require 'async'
+Joi = require 'joi'
 
-helperObjToRest = require './helper-obj-to-rest'
+helperObjToRestCreditCard = require './helper-obj-to-rest-credit-card'
+helperObjToRestAccount = require './helper-obj-to-rest-account'
+
 i18n = require './i18n'
 validationSchemas = require './validation-schemas'
 
@@ -46,9 +49,17 @@ module.exports = (plugin,options = {}) ->
     method: "POST"
     config:
       description: i18n.descriptionUsersMeAccountsPost
-      tags: ['accounts']
+      tags: options.routeTagsPublic
       validate:
-        payload: validationSchemas.payloadUsersMeAccountsPost
+        payload: Joi.object().keys(
+                                  name : Joi.string()
+                                  sitename: Joi.string()
+                                  contactPhone: Joi.string()
+                                  contactEmail: Joi.string()
+                                  stripeCustomerId: validationSchemas.stripeCustomerId
+                                  defaultCreditCardId: validationSchemas.creditCardId
+
+                                  ).options({allowUnknown: true,stripUnknown:true})
     handler: (request, reply) ->
       id = request.auth?.credentials?.id
       return reply Boom.unauthorized(i18n.errorAuthenticationRequired) unless id
@@ -66,7 +77,7 @@ module.exports = (plugin,options = {}) ->
 
         methodAccounts().create request.payload,null, (err,accountResult) ->
           return reply err if err
-          reply( helperObjToRest.account(accountResult)).code(201)
+          reply( helperObjToRestAccount(accountResult)).code(201)
 
 
 

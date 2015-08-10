@@ -43,26 +43,15 @@
   </dt>
   <dd>
     <pre><code class='coffeescript'>{
-  creditCardId: creditCardId,
-  stripeCustomerId: stripeCustomerId,
-  payloadUsersMeAccountsPost: Joi.object().keys({
-    name: Joi.string(),
-    sitename: Joi.string(),
-    contactPhone: Joi.string(),
-    contactEmail: Joi.string(),
-    stripeCustomerId: stripeCustomerId,
-    defaultCreditCardId: creditCardId
-  }).options({
-    allowUnknown: true,
-    stripUnknown: true
-  })
+  creditCardId: validateId.description(i18n.descriptionCreditCardId).example(i18n.exampleObjectId),
+  stripeCustomerId: Joi.string().description(i18n.descriptionStripeCustomerId)
 }</code></pre>
     
   </dd>
 </dl>
     </div>
     <div id='footer'>
-  August 10, 15 04:37:31 by
+  August 10, 15 04:43:51 by
   <a href='https://github.com/coffeedoc/codo' title='CoffeeScript API documentation generator'>
     Codo
   </a>
