@@ -13,10 +13,10 @@
   "description": "Provides HAPI based account management endpoints.",
   "dependencies": {
     "async": "1.4.2",
-    "hoek": "2.14.0",
-    "boom": "2.8.0",
-    "bson": "0.4.11",
-    "joi": "6.6.1",
+    "hoek": "2.16.3",
+    "boom": "2.9.0",
+    "bson": "0.4.15",
+    "joi": "6.9.0",
     "underscore": "1.8.3"
   },
   "peerDependencies": {
@@ -36,13 +36,13 @@
     "grunt-mocha-test": "0.12.7",
     "grunt-release": "0.13.0",
     "grunt-shell": "1.1.2",
-    "hapi": "8.8.1",
-    "hapi-user-store-multi-tenant": "2.1.1",
+    "hapi": "10.4.0",
+    "hapi-user-store-multi-tenant": "2.2.1",
     "hapi-store-accounts": "2.0.1",
-    "matchdep": "0.3.0",
-    "mocha": "2.2.5",
-    "mongoose": "4.1.1",
-    "should": "7.0.3"
+    "matchdep": "1.0.0",
+    "mocha": "2.3.3",
+    "mongoose": "4.1.10",
+    "should": "7.1.0"
   },
   "config": {
     "blanket": {
